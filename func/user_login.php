@@ -31,7 +31,7 @@ if (isset($_POST['email'])) {
         header('location: ../login.php');
         }
   
-        $query = "SELECT email, password, fullname FROM users WHERE email='$email'";
+        $query = "SELECT id, email, password, fullname FROM users WHERE email='$email'";
         $result = $connect->query($query);
         
 
@@ -40,6 +40,7 @@ if (isset($_POST['email'])) {
 
             if($user_details['email'] == $email && $user_details['password'] == sha1($password)){
                 $_SESSION['email'] = $email;
+                $_SESSION['id'] = $user_details['id'];
                 $_SESSION['name'] = $user_details['fullname'];
 
                 $_SESSION['message'] = "Welcome, you are now logged in..!";

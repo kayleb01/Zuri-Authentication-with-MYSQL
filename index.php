@@ -40,7 +40,7 @@ if (!isset($_SESSION['email'])) {
             <h1> Courses </h1>
             <p> <a href="add_course.php"> Add Course</a> </p>
             <hr>
-            <p> <a href="view_course.php"> View Courses</a> </p>
+            <p> <a href="courses.php"> View Courses</a> </p>
             <hr>
 
             <section class="list-description--item">

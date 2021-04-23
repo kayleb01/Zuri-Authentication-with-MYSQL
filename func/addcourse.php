@@ -23,14 +23,18 @@ if (isset($_POST)) {
         header('location: ../add_course.php');
     }
 
+    $user_id = $_SESSION['id'];
     //insert the course into the database
-    $query = $connect->query("INSERT INTO courses (title, description) VALUES ($title, $description)");
+    $query = $connect->query("INSERT INTO courses (title, description, created_at, user_id) VALUES('$title', '$description', now(), $user_id)");
+
+
     if ($query) {
 
         $_SESSION['message'] = "Course created successfully";
-        header('location:../index.php');
+        header('location:../courses.php');
     }else{
-        $error[] = "Error creating course please try again";
+
+        $error[] = "Error creating course please try again ".$connect->error;
         $_SESSION['errors'] = $error;
         header('location: ../add_course.php');
     }

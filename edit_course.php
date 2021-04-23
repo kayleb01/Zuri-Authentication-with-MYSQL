@@ -1,5 +1,7 @@
 <?php
 session_start();
+require('func/editCourse.php');
+
 
 if (!isset($_SESSION['email'])) {
     $_SESSION['error'] ="You must be logged in to proceed";
@@ -31,7 +33,7 @@ if (!isset($_SESSION['email'])) {
     </header>
     <main class="main">
         <div class="list-description">
-            <form action="func/addcourse.php" method="POST">
+            <form action="func/updateCourse.php" method="POST">
                 <div class="email-login" style="width: 500px;">
                 <?php
                     if (isset($_SESSION['errors'])) {
@@ -42,10 +44,11 @@ if (!isset($_SESSION['email'])) {
                      }
                 ?>
                 <label for="email"> <b>Course Title</b></label>
-                <input type="text" placeholder="Enter Tile" name="title" autofocus>
+                <input type="text" name="title"  value="<?php echo $course['title'] ?>" autofocus>
                 <label for="psw"><b>description</b></label>
-                <textarea name="description" id="20" cols="20" rows="10" placeholder="Enter course description"></textarea>
+                <textarea name="description" id="20" cols="20" rows="10"><?php echo$course['description']?></textarea>
             </div>
+            <input type="hidden" name="course_id" value="<?php echo $course_id?>">
             <button class="cta-btn" type="submit">Add course</button>
         </form>
        
