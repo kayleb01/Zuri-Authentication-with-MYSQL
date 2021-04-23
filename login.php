@@ -39,7 +39,7 @@ if (isset($_SESSION['email'])) {
          <input type="password" placeholder="Enter Password" name="password" required>
       </div>
       <button class="cta-btn" type="submit">Log In</button>
-      <a class="forget-pass" href="forgot-password.php">Forgot password?</a>
+     
    </form>
 </div>
 </body>
